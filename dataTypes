@@ -1,0 +1,174 @@
+07-01-2025
+Today topics
+1)JavaScript:
+2)Data Types
+3)Operators
+4)Conditional
+5)Loops
+Data types:
+1)Dynamic type language
+Two types:
+1)primitive data type
+2)Non-Primitive data type
+To check the data type – typeOf
+!)Primitive data type: predefined; we can store single values
+1)numbers : integers, floats
+EX:1,-2,3,-1,2.3,-4.3
+2)String : Stream of characters enclosed in quotes
+--single, double, backtick quotes;
+Ex:single and double quotes works as same
+3)Boolean :true (or) false
+4)Null: empty value or no value
+Example1:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Hii Dhanush reddy
+    </p>
+    <script>
+        let b=-3.5
+        let a=-5
+        console.log(typeof(a))
+        console.log(typeof(b))
+        document.write(typeof(a))
+        document.write(typeof(b))
+       
+    </script>
+</body>
+</html>
+
+Example 2:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <H1>
+        HELLO WORLD
+    </H1>
+    <p>
+        Hlo DHANUSH REDDY
+    </p>
+    <script>
+        let b=-3.5
+        let a=-5
+        console.log(typeof(a))
+        console.log(typeof(b))
+        document.write(typeof(a))
+        document.write(typeof(b),'<br>')
+        document.write("hi + a+b",'<br>')
+        document.write('hi +${a + b}')
+       
+    </script>
+</body>
+</html>
+String concatination:
+Example:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <H1>
+        HELLO WORLD
+    </H1>
+    <p>
+        Hlo DHANUSH REDDY
+    </p>
+    <script>
+        let a='Dhanush'
+        let b='Reddy'
+        let age=20
+        let greeting=`I am ${a} ${b}, my age is ${age}`
+        document.write(greeting)
+    </script>
+</body>
+</html>
+
+NULL:
+Example;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <H1>
+        HELLO WORLD
+    </H1>
+    <p>
+        Hlo DHANUSH REDDY
+    </p>
+    <script>
+        let x=null
+        document.write(x,'<br>')
+        document.write(typeof(x))
+        let y
+        console.log(y)
+    </script>
+</body>
+</html>
+
+
+IMPLEMENTED IN VSCODE:
+
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <H1>
+        HELLO WORLD
+    </H1>
+    <p>
+        Hlo DHANUSH REDDY
+    </p>
+    <script>
+        let x=null
+        document.write(x,'<br>')
+        document.write(typeof(x))
+        let y
+        console.log(y)
+        // let a='Dhanush'
+        // let b='Reddy'
+        // let age=20
+        // let greeting=`I am ${a} ${b}, my age is ${age}`
+        // document.write(greeting)
+        // let a=-5
+        // console.log(typeof(a))
+        // console.log(typeof(b))
+        // document.write(typeof(a))
+        // document.write(typeof(b),'<br>')
+        // document.write("hi + a+b",'<br>')
+        // document.write('hi +${a + b}')
+       
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
