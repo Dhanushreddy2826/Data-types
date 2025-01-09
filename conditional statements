@@ -1,0 +1,129 @@
+09-01-2025:
+Topics
+Conditional statements;
+--To make the set instruction(block of code )(conditional block) execute only when the given conditional is True
+--used to decide whether the code has to be executed or skip based on the given condition
+--line -line (sequence)
+Block of code:set of instructions
+--it will execute only when the specific condition is true
+Condition:An expression that evaluates an result(true or Flase)
+Ex: console.log(5>6)
+--Methods:
+If
+If-else
+else if
+switch
+Ternary operator
+If:only one possible condition;
+---if the condition is True it will execute other wise it skip
+Syntax:
+If(condition){
+--block of code
+}
+Example:
+ <script>
+    let a=4
+    let b=5
+    if(a<b){
+        document.write("Dhanush" ,"<br>")
+    }
+    document.write("nani")
+   </script>
+Output:
+Dhanush
+Nani
+Example 2:
+  <script>
+    let a=4
+    let b=5
+    if(a>b){
+        document.write("Dhanush" ,"<br>")
+    }
+    document.write("nani")
+   </script>
+Output:
+Nani
+
+Else:
+    Example:
+  <script>
+    let a=4
+    let b=5
+    if(a>b){
+        document.write("Dhanush" ,"<br>")
+    }
+    else{
+        document.write("minnu" ,"<br>")
+    }
+    document.write("nani")
+   </script>
+Output:
+Minnu
+Nani
+Example for if,Else if,Else:
+ <script>
+        let age=prompt("Enter your age?")
+        let name=prompt("enter your name?")
+        if(age<18){
+            alert(name+"you are too young to marry")
+        }else if(age>35){
+            alert(name+"you are too old to marry") 
+              }else{
+                alert(name+"perfect age to marry")
+              }
+              alert("welcome to my world")
+    </script>
+Problem:
+Write a program that reads the score A and B of two players and checks if one of the scores is greater than 300 and sum of the scores is less than 500
+Input: the first line of input contains an integer representing the score A. and second line of input contains an integer representing the score B.
+Output: the output should be a single line containing a string . can team up should be printed
+
+Implemented in VSCODE:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         let age=prompt("Enter your age?")
+         let name=prompt("enter your name?")
+         if(age<18){
+             alert(name+"you are too young to marry")
+         }else if(age>35){
+             alert(name+"you are too old to marry") 
+               }else{
+                 alert(name+"perfect age to marry")
+               }
+               alert("welcome to my world")
+    // let a=4
+    // let b=5
+    // if(a>b){
+    //     document.write("Dhanush" ,"<br>")
+    // }
+    // else{
+    //     document.write("minnu" ,"<br>")
+    // }
+    // document.write("nani")
+    </script>
+</body>
+</html>
+
+
+    
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
