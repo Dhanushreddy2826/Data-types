@@ -1,0 +1,160 @@
+
+10-01-2024
+Program solving with javaScript:
+1)Write program to check whether the number is divisible by 2 and 3 and both (take prompt)
+2)Write a program to find the largest number out of three numbers expected from the user
+A=11
+B=5
+C=8
+3)Accept the following from the user and calculate the percentage of classes attended:
+a)Total number of working days
+b)Total number of days for absent
+After calculating percentages show that,if the percentage is less than 75, then student will not be eligible to write exam
+4)A company decided to give bonus to employee according to the following criteria:
+Time period of service                Bonus
+More than 10 Years                     10%
+>=6  and <=10                                8%
+Less than 6 years                          5%
+Ask the user for their salary and years of service and print the bonus amount
+1)problem code:
+     let number = parseInt(prompt("Enter a number:"));
+       if (number % 2 === 0 && number % 3 === 0) {
+            document.write("The number is divisible by both 2 and 3.");
+        } else if (number % 2 === 0) {
+            document.write("The number is divisible by 2.");
+        } else if (number % 3 === 0) {
+            document.write("The number is divisible by 3.");
+        } else {
+    document.write("The number is not divisible by 2 or 3.");
+}
+2)problem code:
+let a = parseInt(prompt("Enter the first number:"));
+        let b = parseInt(prompt("Enter the second number:"));
+        let c = parseInt(prompt("Enter the third number:"));
+        if(a>b && a>c){
+            document.write(`${a} is greater b and c1`)
+        }else if (b>a && b>c){
+            document.write(`${b} is greater a and c`)
+        }else{
+            document.write(`{c} is greater than a and b`)
+        }
+     3)problem code:
+<script>
+        let W = parseInt(prompt("Enter total number of days"))
+        let A = parseInt(prompt("Enter number of Absent days"))
+        let P = W -A
+        let AP=(P/W)*100
+        if(AP>=75){
+            document.write("Eligible")
+        }else{
+            document.write("Not Eligible")
+        }  
+    </script>
+4)problem code:
+  let a=parseInt(prompt("salary"))
+        let b=parseInt(prompt("years of service"))
+        if(b>10){
+            let c=a*0.1
+            let d=c+a
+            alert("after bonus salary"+d)
+        }
+        else if(b>=6 && b<=10){
+            let c=a*0.08
+            let d=c+a
+            alert("after bonus salary"+d)
+        }
+        else if(b<6){
+            let c=a*0.05
+            let d=c+a
+            alert("after bonus salary"+a)
+        }
+        else{
+            alert(a)
+        }
+
+IMPLEMENTED IN VSCODE:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let a=parseInt(prompt("salary"))
+        let b=parseInt(prompt("years of service"))
+        if(b>10){
+            let c=a*0.1
+            let d=c+a
+            alert("after bonus salary"+d)
+        }
+        else if(b>=6 && b<=10){
+            let c=a*0.08
+            let d=c+a
+            alert("after bonus salary"+d)
+        }
+        else if(b<6){
+            let c=a*0.05
+            let d=c+a
+            alert("after bonus salary"+a)
+        }
+        else{
+            alert(a)
+        }
+        // let W = parseInt(prompt("Enter total number of days"))
+        // let A = parseInt(prompt("Enter number of Absent days"))
+        // let P = W -A
+        // let AP=(P/W)*100
+        // if(AP>=75){
+        //     document.write("Eligible")
+        // }else{
+        //     document.write("Not Eligible")
+        // }  
+        // let a = parseInt(prompt("Enter the first number:"));
+        // let b = parseInt(prompt("Enter the second number:"));
+        // let c = parseInt(prompt("Enter the third number:"));
+        // if(a>b && a>c){
+        //     document.write(`${a} is greater b and c1`)
+        // }else if (b>a && b>c){
+        //     document.write(`${b} is greater a and c`)
+        // }else{
+        //     document.write(`{c} is greater than a and b`)
+        // }
+     
+//      let number = parseInt(prompt("Enter a number:"));
+
+//             if (number % 2 === 0 && number % 3 === 0) {
+//                 document.write("The number is divisible by both 2 and 3.");
+//             } else if (number % 2 === 0) {
+//                 document.write("The number is divisible by 2.");
+//             } else if (number % 3 === 0) {
+//                 document.write("The number is divisible by 3.");
+//             } else {
+//                 document.write("The number is not divisible by 2 or 3.");
+// }
+
+
+//             if (number % 2 === 0 && number % 3 === 0) {
+//      document.write("The number is divisible by both 2 and 3.");
+//  } else if (number % 2 === 0) {
+//                 document.write("The number is divisible by 2.");
+//             } else if (number % 3 === 0) {
+//                 document.write("The number is divisible by 3.");
+//             } else {
+//                 document.write("The number is not divisible by 2 or 3.");
+// }
+    </script>
+</body>
+</html>
+
+
+
+
+    
+
+
+    
+
