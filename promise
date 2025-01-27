@@ -1,0 +1,106 @@
+
+27-01-2025
+
+Promise:
+A promise is a special javascript object that represent the eventual completion or failture of an
+
+1)Three states
+1)pending : the initial state, the promise is still waiting the operation to finish
+2)Fulfilled : The operation completed successfully
+3)Rejected : The operation failed
+
+Exp:
+To create a promise new promise();
+The promise constructor takes a function with parameters:
+Resolve: to mark as the promise is successful
+Reject: to mark it as failed
+Handing:
+.then() methods is called when promise is rejected;
+It receives the result from the resolve();
+.catch() :method is called when promise is rejected;
+It receives the result from the reject();
+Ex:
+ <script>
+        let myPromise=new Promise((resolve ,reject)=>{
+            let success =  true
+            if(success){
+                resolve("The Operation was successfully")
+                }else{
+                    reject("The operation failed")
+
+}
+});
+myPromise
+.then(result=>{
+    document.write(result)
+})
+.catch(error=>{
+    document.write(error)
+}
+)
+
+    </script>
+
+Chaining promises:
+--You can have chain multiple  .then()
+Ex:
+let promise = new Promise((resolve, reject) => {
+        resolve(5);
+    });
+
+promise
+  .then((result) => {
+    document.write(result,"<br>");
+    return result * 2;
+  })
+  .then((result) => {
+    document.write(result,"<br>"); 
+    return result + 3;
+  })
+  .then((result) => {
+    document.write(result);
+  });
+
+
+
+VS CODE IMPLEMENTED:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Promise resolved after 2 seconds");
+        }, 2000);
+    })
+    .then((result) => {
+        document.write(result,"<br>");
+    })
+    .catch((error) => {
+        document.write(error);
+    });
+            
+//         let promise = new Promise((resolve, reject) => {
+//         resolve(5);
+//     });
+
+// promise
+//   .then((result) => {
+//     document.write(result,"<br>");
+//     return result * 2;
+//   })
+//   .then((result) => {
+//     document.write(result,"<br>"); 
+//     return result + 3;
+//   })
+//   .then((result) => {
+//     document.write(result);
+//   });
+    </script>
+</body>
+</html>
