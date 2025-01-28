@@ -1,0 +1,90 @@
+28-01-2025
+
+DOM (Document object model)
+---it is a programming interface in web development that allows us to interact and manipulate (change) the html documents when the webpage is loaded, the  browser creates the DOM of the webpage
+
+When an html file is loaded into the browser , the java script cannot understand the html document directly
+
+DOM: is basically the representation of same html document but  in a tree-like structure composed of objects
+
+HTML dom it allows javaScript to access (toget)and modify all the elements in html document
+
+Keypoints:
+1)Structure: the DOM represens the structure of html document as tree; Each node in a tree represent the element,an attribute, text
+2)manipulation: using js , you can interact with elements(button, h , p), we can modify , add ,remove
+
+--in Dom all the html elements are defined objects
+Property: is a value that you can set to the objects (like changing content of an html element)
+Method:an action (like add or delete)
+
+Methods of Document object:
+1)getting an element by id
+2) getting an element by class
+--returns all the elements having the same class name
+--return in the form of html
+3) getting an element by tagname
+4) getting an element by query selectors
+
+2)class code:
+    <style>
+        .a{
+            color: blue;
+        }
+        .b{
+            color: darkgreen;
+        }
+        .c{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="a"> Dhanush</h1>
+    <h1 class="b"> purushotham</h1>
+    <h1 class="b"> nikhil</h1>
+    <h1 class="a"> vinay</h1>
+    <h1 class="c"> nani</h1>
+    <h1 class="c"> minnu</h1>
+    <h1 class="b"> venkat</h1>
+    <h1 class="c"> lokesh</h1>
+    <script>
+
+
+
+
+vs code implemented
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a{
+            color: blue;
+        }
+        .b{
+            color: darkgreen;
+        }
+        .c{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="a"> Dhanush</h1>
+    <h1 class="b"> purushotham</h1>
+    <h1 class="b"> nikhil</h1>
+    <h1 class="a"> vinay</h1>
+    <h1 class="c"> nani</h1>
+    <h1 class="c"> minnu</h1>
+    <h1 class="b"> venkat</h1>
+    <h1 class="c"> lokesh</h1>
+    <script>
+        let x
+    
+    </script>
+</body>
+</html>
