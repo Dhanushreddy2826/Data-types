@@ -1,0 +1,132 @@
+
+29-08-2025
+
+getElementbyclassName: 
+     ---returns all the elements having the same class namename
+getElementbyclassName():  
+     ----method returns an HTML collection object
+----An HTML collection is array like list of HTML elements.
+---Length property provides the size of the collection
+Example:
+<body>
+    <h1 class="c"> nani</h1>
+    <h1 class="c"> minnu</h1>
+    <h1 class="b"> lokesh</h1>
+    <script>
+        let x=document.getElementsByClassName('c')
+        // console.log(x)
+        //print each element in the HTML collection
+
+        for(let i=0 ;i<x.length; i++){
+            console.log(x[i])
+        }
+    
+    </script>
+
+Gettingelementbytagname():
+Example:
+</head>
+<body>
+    <h1 class="a"> nani</h1>
+    <h1 class="a"> minnu</h1>
+    <h2 class="b"> lokesh</h2>
+    <h2 class="b"> rishitha</h2>
+    <script>
+        // let x=document.getElementsByClassName('c')
+        // // console.log(x)
+        // //print each element in the HTML collection
+        let x=document.getElementsByTagName('h1')
+        console.log(x)
+
+        for(let i=0 ;i<x.length; i++){
+            console.log(x[i])
+        }
+
+Queryselector:
+Queryselector:used to select HTML elements by its classname, tagname ; it selct only the first element
+Example:
+<body>
+    <h3 class="a"> nani</h3>
+    <h1 class="b"> minnu</h1>
+    <h2 class="a"> lokesh</h2>
+    <h1 class="b"> rishitha</h1>
+    <script>
+        let x=document.querySelector('h1')
+        console.log(x)    
+    </script>
+</body>
+
+Output: <h1 class="a"> minnu</h1>
+
+Queryselector all:
+Can be used to select html elements by its tag name or class name . it return a nodelist
+Example: </head>
+<body>
+    <h3 class="a"> nani</h3>
+    <h1 class="b"> minnu</h1>
+    <h2 class="a"> lokesh</h2>
+    <h1 class="b"> rishitha</h1>
+    <script>
+        let x=document.querySelectorAll('h1')
+        console.log(x)    
+    </script>
+</body>
+
+
+Manipulate Elements:
+To create a HTML element :
+---createElement()
+---document.createElement()
+---The methods an html element tagname as string parameter
+Example:
+<script>
+        const t=["Nani","minnu","lokesh"]
+        for(let i=0 ; i<t.length; i++){
+            let tt=document.createElement('h2')
+            tt.className="aa"
+            tt.textContent=t[i];
+            console.log(tt)
+        }
+
+VS code IMPELMENTED:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+    
+    <script>
+        const t=["Nani","minnu","lokesh"]
+        for(let i=0 ; i<t.length; i++){
+            let tt=document.createElement('h2')
+            tt.className="aa"
+            tt.textContent=t[i];
+            console.log(tt)
+        }
+        // let x=document.getElementsByClassName('c')
+        // // console.log(x)
+        // //print each element in the HTML collection
+        // let x=document.querySelector('h1')
+        // console.log(x)
+        // let x=document.querySelectorAll('h1')
+        // console.log(x)
+
+        // for(let i=0 ;i<x.length; i++){
+        //     console.log(x[i])
+        // }
+     
+    </script>
+</body>
+</html>
+
+
+    
+
+ 
+
+
