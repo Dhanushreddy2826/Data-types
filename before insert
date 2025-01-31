@@ -1,0 +1,154 @@
+31-01-2025
+
+DOM METHODS:
+1)create Element (single , multiple)
+2)appendChild()#parent at the end
+3)insertBefore(): insert a new node before an existing node as child node of a specified parent
+-----requires  a references to both the new node and existing node you want to insert before
+
+Ex:
+ <div id="a">
+        <h1 >Guna</h1>
+        <h1>chandu</h1>
+        <h1 id="r">Purushotham</h1>
+    </div>
+    <div id="b">
+        <h2>nani</h2>
+        <h2>minnu</h2>
+        <h2>lokesh</h2>
+    </div>
+    <script>
+        let n=document.createElement('h1')
+        n.textContent='rishitha'
+        let p=document.getElementById('a')
+        let l=document.getElementById('r')
+        p.insertBefore(n,l)
+    </script>
+
+Ex2:
+ <div id="a">
+        <h1 id="rr">Guna</h1>
+        <h1>chandu</h1>
+        <h1 id="r">Dhanush</h1>
+    </div>
+    <div id="b">
+        <h2>nani</h2>
+        <h2>minnu</h2>
+        <h2>lokesh</h2>
+    </div>
+    <script>
+        //to insert rishitha before dhanush
+        let n=document.createElement('h1')
+        n.textContent='rishitha'
+        let p=document.getElementById('a')
+        let l=document.getElementById('r')
+        p.insertBefore(n,l)
+        //to insert dhanush before guna
+        let nn=document.createElement('h1')
+        nn.textContent='Dhanush'
+        let pp=document.getElementById('a')
+        let ll=document.getElementById('rr')
+        p.insertBefore(nn,ll)
+    </script>
+
+
+Remove element:
+Let b=document
+Removechild
+Ex:  <div id="a">
+        <h1 >rishitha</h1>
+        <h1 id="d">chandu</h1>
+        <h1 >Nani</h1>
+    </div>
+    <div id="b">
+        <h2>guna</h2>
+        <h2>chandu</h2>
+        <h2>lokesh</h2>
+    </div>
+    <script>
+        let p=document.getElementById("a")
+        let a=document.getElementById("d")
+        console.log(a)
+        p.removeChild(a)
+
+To replace a element:
+“malla reddy university”
+e
+
+
+vs code implemented:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+    
+    <div id="a">
+        <h1 >rishitha</h1>
+        <!-- <h1 id="d">chandu</h1> -->
+        <h1 >Nani</h1>
+    </div>
+    <div id="b">
+        <h2>guna</h2>
+        <h2>chandu</h2>
+        <h2>lokesh</h2>
+    </div>
+    <script>
+        // //to insert minnu before Nani
+        // let n=document.createElement('h1')
+        // n.textContent='minnu'
+        // let p=document.getElementById('a')
+        // let l=document.getElementById('r')
+        // p.insertBefore(n,l)
+        // //to insert dhanush before rishitha
+        // let nn=document.createElement('h1')
+        // nn.textContent='Dhanush'
+        // let pp=document.getElementById('a')
+        // let ll=document.getElementById('rr')
+        // p.insertBefore(nn,ll)
+
+        let n= document.createElement('h2')
+        n.textContent='MALLA REDDY UNIVERSITY'
+        let p=document.getElementById('b')
+
+
+        // let p=document.getElementById("a")
+        // let a=document.getElementById("d")
+        // console.log(a)
+        // p.removeChild(a)
+
+        
+    </script>
+ 
+</body>
+</html>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
