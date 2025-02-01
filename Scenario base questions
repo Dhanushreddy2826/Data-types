@@ -1,0 +1,146 @@
+ 01-02-2025
+
+1)Java Script;
+1)variables
+----Let,var,const
+----Conditional
+----loops
+----functions
+----oops
+---Ap,v,v,D.S.A
+----sql -Mysql
+--Nosql -mongodb
+2)React JS
+#React Js is JavaScript library
+#library -prefined
+3)front end  -projects
+4)SpringBoot; Java
+5)Mysql
+6)Material UI
+
+
+
+
+
+
+Question -01:
+JavaScript Revision practice Question:
+
+Scenario 1: Voting Eligibility System
+
+You are tasked with building a system to check whether a person is eligible to vote. The System follow these rules:
+1.A person must be  at least 18 years old to vote
+2.if the person is a citizen,they are eligible to vote.
+3.If the person is not a citizen but  has passed a citizenship test, they are eligible to vote.
+4.If the person is under 18, they cannot vote
+
+PROGRAM:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let age = parseInt(prompt("Enter your age:"))
+        
+        if(age>=18 ){
+            let citizen = confirm("Are you a citizen?")
+        let passedCitizenTest = confirm("Have you passed citizen test?")
+            document.write("You are eligible to vote")
+            
+            if(age>=18 && !citizen && passedCitizenTest){
+                document.write("You are eligible to vote")
+            }
+            
+        }else{
+            document.write("You are not eligible to vote")
+        }
+    </script>
+</body>
+</html>
+
+QUESTION:02
+Scenario 2: Discount Eligibility
+An online store offers a discount system based on the following conditions;
+1.A customer who spends more than Rs.100 gets a 20% discount.
+2.A customer who spends more than Rs.50 but less than or equal to Rs.100 gets a 10% discount
+3.If the customer is a premium member , they receive and extra 5% discount
+Sol:
+PROGRAM:
+<script>
+        function calculateDiscount(totalSpent, isPremiumMember) {
+            let discount = 0;
+        
+            if (totalSpent > 100) {
+                discount = 20;
+            } else if (totalSpent > 50 && totalSpent <= 100) {
+                discount = 10;
+            }
+        
+            if (isPremiumMember) {
+                discount += 5;
+            }
+        
+            return discount;
+        }
+        
+        const totalSpent = parseFloat(prompt("Enter the total amount spent:"));
+        const isPremiumMember = confirm("Are you a premium member? Click OK for Yes, Cancel for No.");
+        
+        const discount = calculateDiscount(totalSpent, isPremiumMember);
+        const finalAmount = totalSpent - (totalSpent * (discount / 100));
+        
+        document.write(`You received a ${discount}% discount.`,"<br>");
+        document.write(`Final amount to pay: Rs ${finalAmount.toFixed(2)}`);
+    </script>
+
+SCENARIO 3 : Event Attendance Eligibility
+An event system has the following eligibility rules
+1.	VIP Users can attend all events
+2.	Non-VIP users can with a special invitation can attend special events
+3.	Users under 18 cannot attend any events
+
+
+
+####vs code implemented
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function calculateDiscount(totalSpent, isPremiumMember) {
+            let discount = 0;
+        
+            if (totalSpent > 100) {
+                discount = 20;
+            } else if (totalSpent > 50 && totalSpent <= 100) {
+                discount = 10;
+            }
+        
+            if (isPremiumMember) {
+                discount += 5;
+            }
+        
+            return discount;
+        }
+        
+        const totalSpent = parseFloat(prompt("Enter the total amount spent:"));
+        const isPremiumMember = confirm("Are you a premium member? Click OK for Yes, Cancel for No.");
+        
+        const discount = calculateDiscount(totalSpent, isPremiumMember);
+        const finalAmount = totalSpent - (totalSpent * (discount / 100));
+        
+        document.write(`You received a ${discount}% discount.`,"<br>");
+        document.write(`Final amount to pay: Rs ${finalAmount.toFixed(2)}`);
+    </script>
+</body>
+</html>
