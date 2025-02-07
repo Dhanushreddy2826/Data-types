@@ -1,0 +1,81 @@
+07-02-2025
+
+Componets:
+
+App.js:
+
+import React from 'react';
+import Greeting from './Greeting';
+
+function App(){
+  const isLoggedIn =false;
+  return(
+    <div className="App">
+      <Greeting isLoggedIn={isLoggedIn}/>
+    </div>
+  )
+}
+export default App;
+
+Greeting.js:
+
+import React from 'react'
+
+function Greeting({isLoggedIn}){
+    if(isLoggedIn){
+        return <h1>Welcome Back!</h1>
+    }else{
+        return <h1> please Login</h1>
+    }
+}
+export default Greeting;
+
+
+#Lists and Keys:
+In react, a list is a collection of items you want to show on screen
+#Keys: keys in react helps
+----React know which items you have changed ; updated
+
+Map() : Elements in array
+Function will be applied
+
+
+List Code;
+App.js;
+import React from 'react';
+import FruitList from './FruitList';  // Import the component
+
+const App = () => {
+    return (
+        <div>
+            <h1>Welcome to My Fruit App</h1>
+            <FruitList />  {/* Render the FruitList component */}
+        </div>
+    );
+};
+
+export default App;
+
+FruitList.js code:
+
+import React from 'react';
+
+const FruitList = () => {
+    const fruits = ['apple', 'cherry', 'orange', 'grapes'];
+
+    return (
+        <div>
+            <h1>Fruit List</h1>
+            <ul>
+                {fruits.map((fruit, index) => (
+                    <li key={index}>{fruit}</li>
+                ))}
+            </ul>
+        </div>
+    );
+};
+
+export default FruitList;
+
+
+
