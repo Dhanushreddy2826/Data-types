@@ -1,0 +1,160 @@
+08-02-2025:
+
+Bulb light turnon and  turn off code in html code:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display:flex ;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+        .light-bulb{
+            width:150px
+        }
+        .button{
+            margin-top: 20px;
+            padding: 10px 20px ;
+            font-size: 10px;
+            cursor: pointer;
+
+        }
+
+    </style>
+</head>
+<body id="body">
+    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/bulb-go-off-img.png" alt ="" class="light-bulb" id="bulbImage"/>
+
+    <button class="button" id="toggleButton" onClick="toggleLight()">Turn On</button>
+
+    <script>
+        let isOn=false;
+        function toggleLight(){
+            const body=document.getElementById("body")
+            const bulbImage=document.getElementById('bulbImage')
+            const toggleButton=document.getElementById('toggleButton')
+
+            if(isOn=!isOn);
+            if(isOn){
+                body.style.backgroundColor='lightyellow ';
+                bulbImage.src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/bulb-go-on-img.png";
+                toggleButton.innerText='Turn Off';
+            }else{
+                body.style.backgroundColor='red';
+                bulbImage.src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/bulb-go-off-img.png";
+                toggleButton.innerText="Turn On";
+            }
+
+            }  
+    </script>
+</body>
+</html>
+
+
+Another Code for bulb:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Blink with Movement</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            transition: background-color 0.5s;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        .light-bulb {
+            width: 150px;
+            position: relative;
+            transition: transform 0.5s;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body id="body">
+    <div class="container">
+        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/bulb-go-off-img.png" 
+             alt="Bulb" class="light-bulb" id="bulbImage"/>
+    </div>
+
+    <button class="button" id="toggleButton" onClick="blinkLight()">Start Blinking</button>
+
+    <script>
+        let isOn = false;
+        let blinkCount = 0;
+        let interval;
+        const vibgyorColors = ["violet", "indigo", "blue", "green", "yellow", "orange", "red"];
+        let colorIndex = 0;
+
+        function toggleLight() {
+            const body = document.getElementById("body");
+            const bulbImage = document.getElementById("bulbImage");
+
+            isOn = !isOn;
+            
+            if (isOn) {
+                bulbImage.style.transform = "translateX(0)"; 
+                body.style.backgroundColor = vibgyorColors[colorIndex]; 
+                bulbImage.src = "https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/bulb-go-on-img.png";
+                colorIndex = (colorIndex + 1) % vibgyorColors.length; 
+            } else {
+                bulbImage.style.transform = "translateX(-100px)"; 
+                body.style.backgroundColor = "black"; 
+                bulbImage.src = "https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/bulb-go-off-img.png";
+            }
+        }
+
+        function blinkLight() {
+            blinkCount = 0;
+            clearInterval(interval);
+
+            interval = setInterval(() => {
+                toggleLight();
+                blinkCount++;
+
+                if (blinkCount >= 10) { 
+                    clearInterval(interval);
+                }
+            }, 500); 
+        }
+    </script>
+</body>
+</html>
+
+State:
+In react , state is a like a container that holds the data or information for a component
+-This data can be change over time based on user actions or events
+
+Why state is Important:
+--It allows us the component to remember things
+EX:
+If you click a button to change a color;
+The state will store hold the color and show on the screen
+1)functional components:
+Syntax:
+Const[statevariable ,setstatefunction]=useState(initialvalue)
+1)Statevariable: hold the current state(ex: name , color)
+2)setStatefunction: A function which is used to update the state
+3)intial value: The initial value of the state variable the component first renders
+
