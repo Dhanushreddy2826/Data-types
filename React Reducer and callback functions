@@ -1,0 +1,92 @@
+
+React Hooks
+React Reducer();
+Callback()
+
+React Reducer();
+A Reducer is a function that helps  to update (like score , a list) based on action we take
+--1)current state : The current value of a state 
+--2)Action : add or remove an item
+
+App.js Code:
+
+import React,{useReducer} from "react";
+import './App.css';
+
+function appleReducer(state={count:3, apples:[]},action){
+  switch(action.type){
+    case 'ADD_APPLE':
+      return {count: state.count+1, apples: [...state.apples, 'apple']};
+    case 'EAT_APPLE':
+      if(state.count > 0){
+        return {count: state.count-1, apples: state.apples.slice(0, -1)};
+      }
+      return state;
+    default:
+      return state;
+  }
+}
+function App() {
+  const [state,dispatch]=useReducer(appleReducer,{count:3, apples:[]})
+  return (
+    <div>
+      <h1>Apple counter</h1>
+      <p>Number of apples:{state.count}</p>
+      <div>
+        {state.apples.map((apple, index) => (
+          <img key={index} src=" data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEhUQEBISFRUVFRUVFxUVFRUVFRUVFRYWFhUSFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGhAQGy0mICUvLS4rNystLS0tLS0tLSstLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLy0tLS0tLS0tLf/AABEIAOEA4QMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAAAgEDBAUGBwj/xAA8EAABAwIDBQYFAgUEAgMAAAABAAIRAyEEMUEFElFhcQYigZGx8BMyocHRUuEHI0JyklNigvGiwhUzQ//EABoBAQADAQEBAAAAAAAAAAAAAAABAwQCBQb/xAApEQACAgEEAQIGAwEAAAAAAAAAAQIDEQQSITFBBRMiMlFxkcFhseFC/9oADAMBAAIRAxEAPwDuSifcoKhckkz7lChCAmbe8kKEIAQhCAEIQgHYdFEHKNc1EKfFAS/gllTCIQCyhNCiEASgH3KIRCAAfcoBQoQEoUKUAKEIQAmaUqEA5zymyAIHNKCgIBkIUoBXJVJUIAQhCAEIUgIQQpUgKYQkiFICkBSAgFhTCaFMIBIUwmhEIBYUQnhRCAWFEJyNVjvxtIWNWmDze38o2Q2l2WIhLQxDH/I9jv7XA+isIQJiKE5CiEJFQghCAEIQgBSFCYICUKUIBSlUlKhBKEJmsQkgBNCnc4ICAIUgKQpAQBClCmEBEKYTAJgFJBp9rbfw+GfTp1X96oYAaN4gX7xAvEwLXuOa2sLxrtBg69DaTa2LHcFcVWkfI6kKu9I5gG448oXtMcFxGWc5LbK9iT8MrhabtJtsYZoa2DUcJAOTW/qd9YHIregLyztLi/iYqs7g8sHRnd16HzXF03GPBkvm4x4K8btKpWP8x7ncZsB0AWFn0HuyvwuFc+dwWmCbBoOUSY8uSyKeHY35nmRPys6QO8QfosLyzDtb5ZgPp7veLy05iLOHA2y01XQ9mO2B320MU4lrjDKrswdG1DqNN7z4irC0aWfwqpknvOIJ6xuj1S4vs6ytPw3neI+V7CPDughW1uUeUW15i8o9BIUQtLsPG1KdMUsZ3XssH3LXtHyuLos6M54Tqt01wcAQQQbgjIhbIyUujcpZIISwnISldHQqFJSoCVIUKQgHQoQgFKhSVCAlounLbxxSBWSDyQE0whoTA2gKQEBAHp9UwCkBMAgIAztwUx6c0wamDUApb7upj3dPuckr3NHzOaOrgFIxk0fbLYwxOGc2JeyXs4yM2+IkdY4KnsFtH4+DZvGX0iaLuPcA3CerC2/GVuTtbDtPer0h/wAwuM7NY6lhdoYij8Rvwa0vY+ZbLTvNAPR7h/xVLkozTz3wbIVznTKLT45XH5X7O9YLjqvIcBgjWe47j3udvOFNskkOcf5jyPkYSCATBdFtSPS8XtekS2nSr0g5898kbtNrY3qjpzNwA3UngDGXgG4amz4dB9OMyQ9pc5xze46mw8gBAAC6nCM8cmKzTSaTknj7HJYXstVfBqwyIgTkOAa2wzW6odn2NF3uPvmt6G8IKNxFVFHCrivBhjAsbcN87q0MgwPpZXEaFLlzViSXR2U1AkI+vorSEhCArj15/dQBfLinISkKCSuPd1Ee7pyEpCAWLf8Afmpj36oIQgJUoQgFKAEFSEBICcBQAmAQDAJgENCcBAACcBSAuL7T9tGUyadHvHiNfHQI2lyy6iiy+eytZZ19XFU2fM7wWBX7RUhYOaF5Ljdt4iqTLy0cG2+uawfhvPeJd1M35qiWpiuj6Cn0DCzZL8HrOKxIrCzzPUj6hctj8E7ejecDnuvnzB1HNctRx1an8riPCfVZjO0uJgNcWuA/pcxpB4Wiyz2yVnTwzZD06yn5Gmjotl0KRdFRoB58Vi9r8Iyi7D1wBuNfDv7Zv/4l3ktT/wDPNJBfRcDruVN0dYc1yytqdosPiKPwKjK4AcDLSwmwIzI58FgjRNWKXjyUy0uojYpc4+/+naU+ztAS65nQ8Bl9z4rW4zY1PfkCALRxOv2Wsb23MBjMK8wAJNS5tEmGZpae28c8/wArBUhze1zo1uXuj6KI6S6b5f8AZVGOqhzOWPvJHTbB2CyfivO60ZAWn9uZXTP2pSYN1oHivHts9pdpMO7X7k5QLHoRZaCvt3EOuaztbAwev1+i9elRqjtSM92jsve+c1jxg9xrbebyRR25TcYNl4E/aFU51H/5H8q/C7RxE92o/wATPqrfc/gpl6ZBL5j6Ga4OEtIISkLybs92vr4dw+MN5hzI+69WwWLZWpirTMtcPYXaeTzr9NOl89PpkkJSFaQkKGcqISlWEJCEAhUBMVCAZChSgFUhCYBASE7QoaFY0ICQFY0KGhRiKzabHVHmGsaXE8miT6KQcf8AxB7RGkBhKR77xLyP6WHJvU+nVcLgtnufeDJNvupo1H4rEPrO+ao4ujgNB0AAHguvwmADGgxfIcV4+s1WHhH2Wkrho6VH/p9/c1dHYgaO8JK2mC2QwRLJKzqLI+a7jwyA4BbzA4eRvOjkByXnVu22e1FGp1c0uWamj2fpGHPY2BkOJ4lPU2Ph5/8App/4hbmqsR4XvVURhHHZ5bvtk87n+TXnZ1AQBSZx+UIGFoj/APNk9ArKpi5WBiNoU2fM4eavzFEfHLy2Z0NBndHkElXGho0Wg2j2kpsB3TJ5LldqdpH1LDujl9091eDuGjsn2jf9pto0303MqX4Rcg8V53VibK6tiCTMlYzlXnLyb6q/ajtTIJWXs+t3gCsGffoVDHEXGlzyvH3ClETeeDt8G0EQV0nYraBw9X4Dj/KqHuz/AEO4dFxuwsbv2OYz6cV0FSnLZGYuD0Vy+p5suc1y8/34Z6o9qrcFi7DxvxqDKhziHf3Cx/KzHBSeU1h4ZUQkKsckKgFZUJilQEoQhATCkBH5lSPeSAdoVjQkCsagHauc/iLivh4CpBg1CymP+TpcP8Q5dI0e+S4j+LT/AORQZxrb3+LHD/3US4TNOjhvvgv5Oc7J0IG8upNTdYOPpK57s68hoA4StlXqTAGt/wB46D1XzV8N9ryfVTrc7eTc7Ngne5R1/a631Md0e+i53BQBJJk+i32ErhwhavTkt0jydaviyuiKxi5Wqx202sFusdEvaTaG7DAQNSTw0XHVsU54gzMn66z0W+y7a8Iv0mhdsVOXRbt/bDjkYHL1XL16pMGZlZm2H26laf40A+Y6xC4j8XLPYhSq4fCiutN9Y+yxnNJEwYV7q4iAIgmLAmOG8qH1ARqDEWyVyRRNsSpSI43iPwqnMMxBlXurid4zOtgB1CQVgOMQQLDUj912ZZNlLqZygzqOWl/NVupngfd1eaom+gt3QopmJJuLGbZ+yujPJss2bifh1ATpZ3TX3yXoWBdIheZNOq7Xsrjh8Mb5A3CG+DiGtnxMLuD8Ga+GVuR6F2JrwalLo4eh+y6dy5DYB3MS3/cCPouxcuzyr/nz9SlwSQrXBIM1BUISNEuYT1M78EoEBALCFKEAJmhEJ2hAS0K1qVoVjQpAzQuE/is2W4fk6r6MXeBcl/EbDb1Okf0uf9QPwuJ/KzZ6e8amH3/RyuxG93wPv0WdXqbt4nu9I5rV4OvuW8FlYqoDf/b9Z15ZrxJQe/LPsIwbsy+mZ7cZuuE3A06LN2XtTdqbzjAvPkud35NgCSNeeoV1KpA6qa1seV2TZpYTi012HaHFGrVkECcpIAHKTYLV0sYQ2LddQrtotsDIPSbcjzt9Vrw6NP29/dW9muqmMa1FdIxMdUkzK1r7z53P51WwrhYFRaYdEWx4Md6qJHjbpF5+yuqMMA6GY8M1S/PKOStR5tgpAjnpb76JHZzAHITA807kjiujNLsrdPCw5ceJSx9eXomIUQcvJSZ2hVtezmKNOsy0hzmsItBa45EHWd0g8lq4vfmraAkgKSIx3cM9qwoivR/v/C7Iry/sZi6lWpTFQzFQEHlDWwP8SfEr1JwVkXk8bWVOuSi+8ftlRVblcQqnLoyiElInISwoAIUwhAWBqcNVgYmDVIFa1OAmDUwCEEALTdrMPvUOjp+hC3gCx9o0d6m4cvRRJZRZTPZZGX0Z5NiKZBJFueWap+JHl9lvNpYWCVp69GNNV5k0fc6W1SQjXx1/ayuoOF5EzleIM5xrafNYtem7VWUnRYwbC453jroqGjbw0UY2pmsDfWZj5vwkx1tPjl9FrSffqrYoui+CcSBcAyNDESNDGiw6xMlxMkzJN5mxzWbWkASIta0SDJB59VhVnC2c68OUK6JTPDMQgTeY1gSY5CVXuq97bkZ8+PO903w5vYZcvIKxMxSjkxXtJMkk5Z3ysq3M5LOjUc+BsbJN3h0/ZdbiiVaMAtUFvL1usx1L6/ki/DJQGGMrSbxraRPlbmp3FDqMM01lYSjLgNJ4AGOayG0dLW+/PwW42TgZIRyJjXFPJ1vYHBn4jDwM+V16W4LneyGADO9y9V0pCurXB856hZ7lzaKXBVuasgtSFq7MZjOCUBZBak3FAE3UK3dQpBkbiYNVhapDVJAgamDUwapIKAXcRup2BEIDjNtYOHGy5fFUdeY/7Xo+2sLvN3uV/suJ2hhonhbKFivhyfR+nanKSNHVYZPS9tM5VWIYAO7OetrLO3YDonrlbULFxDQBBOQBzGt4WNxPdrt5NVjJjOxkgTOsXGmSxOXjkJnhOcLZ4mkLz4SQJ0nw+ypY3+kFw3vmANoFxI1yBXS4RrViwY76J3Z663t/2sCvSh26DOWU3nS63LwAANYM8r2WrrxOS6hI4lPKMVrSMuf1EFPu298tPFZNMNGYmx5Xj7H0VdWNLKxSyUyfkoIGh+2mSV3P2BYBSFDhJ4TGX7rsobIZRJvFjqcuFvL6K4YExP2MTwniri2IvAkAiJsT6qaNMh1wdZOYM5KSnLYuHoecxHv3ZddsDBgmYt7zWnwuG7/WLflegdnNn3AA1gdM5+qmKyzLq7lCB02ycPus6rMLU7WxAHRELWlhHy0pbm2VFqXdVqgqTkpLVAYrYQGqALuIV26hAWEKITAKYXTAsKYUqVAIAUwpUoCqrS3gRxXIbXwZBPFdqtZtjB7w3h4/lVWRyjTprdkjzTEscDY8ff0WqrkxE20Hl78F1G18MucrsibCOE6nULBJYPqdNcmsmBXceJ0VTnHXeIHmL9OJ+qsra6jKfT0WOeMGNTymFwblJCVqm8ZysczwuqKzgbgDpeLKx5nQZ+wSsZ7o4ZXy62Ph9l0g5jtFzladRFtBxWPWdxnpzixQ6r781RVqyZP0Ay1su4orlPgZr/x9I99FD6iodU9lI6roD70ViRS7cG3oVA4QdInzGqz8O0C5cCTa34Whwr8lvtmU945eCYZW5LGTf7EwkmYzXpmwcHuM3jqLTwXO9k9lb5kiwz/C7kNiwWmuOOT5/X6jdLahN1EJ4UQrTzRN1LCshQQgK91AanIQAgDdQnQgICFEqN5S+wMpCWVO8oAylJKneQkdBvYpZRvIDme0OzYuMj9FwW0WgE2XsFZjXgtcJBXnPa/Yr6J+IAXU/wBXDk7gsV9bXKPW0GpWdkmcZiH8c+EWiI8NFrqtTn7/AAnxte5Hu2v1WurYrjGvh0VCiz3vcwi41xpa0Gcli1KvD6/ZYtTErHfiVbGszz1CRlurql1ZYT8SqTXVqrMs9WjNfWSNeXGyw9+cysmlUGQVsazJLWJvCNtgxou97IbHdVcAB+AOJXO9iuzlbGPHw2ncB7zz8rep1PIXXu2xtmU8NTDKY6u1cfxyXXtld2txHbHsysBhG0mBjdMzxPFZCTeU7ysPMbzyxlCiUSoIBCJQgIKgKSgIBoQpQgMclLKChQAlTKhCAJUbylSgF3ylNQp4RCAx3ViseviXQRAIIggiQRwIOiznLCxR3raKG8HSWTzDtlsaiZfRa9j/ANNMbzD4E93wPgvOMTh64zo1PJfQtTBA5hVv2fT/AEg+AVeI/Q3LUWRjjcfN9VtX/Sqf4lUOZU/Q/wAivpCtsamf6G+Sx3dn6R/ob5BWLBRK2b8nzp8Kpq13kn+C7/TPW8r6Ed2bpfob5BIezFH9DfILpMpbbPnwYWpwd5Lcdn6TGVA6vRNUfpcSG+IbG90le1HsrR/Q3yQOy9H9AU5OQ2J2icabW02sawCA1jQ1oHAAZLd09rPWBg9itpnuiPRbilgWnRG0cbWDNplWs2gUDAjgmGDCjJOGWNxqsbiVUMMmFFCS8V0wqqkU0waoBcKiZr1SI6pwNUBdvoSQhAVlyje93SkqEJH3vd0B3u6REoQWb34U7yqQgLd5RvKtCAHmVU5qthG6uWsnSeCpjEhpjxlZAapjkFGDrcY7qSj4ayN1G4pwNxjfD93UfD9FlbijcUnJjbiAz3dZBYjcQGOGe7qyn+6fcQGoQWtKZVBNKkDoSIQgdAKRCAYkT4JmmyrkqQSgLpQklQgBQhCgDBChCAlQhCAFKEIAUoQgJQhCEkhClCAFCEICFCEICEFQhCBkKEIAQoQpBKhCEBKEIQDoQhCD/9k="/>
+        ))}
+      </div>
+      <button onClick={()=>dispatch({type:'ADD_APPLE'})}>ADD APPLE</button>
+      <button onClick={()=>dispatch({type:'EAT_APPLE'})}>EAT APPLE</button>
+    </div>
+  )
+}
+export default App;
+
+Callback in react :
+ In react , a call back is a function that is passed as an argument to another function
+. call backs are often to communicate with different components
+EX:
+A parent component passing as callback to a child
+. parent component displays a message; and child component has a button
+. when the button is clicked, the child will use callback and tells the parent component to update the message
+
+App.js code:
+
+import React, { useState } from "react";
+import Child from './Child';
+const Parent=()=>{
+  const [message,setMessage]=useState('Hello Dhanush Reddy')
+
+  const changeMessage=()=>{
+    setMessage('Hello button is clicked')
+  };
+  return (
+    <div>
+      <h1>
+        {message}
+      </h1>
+      <Child changeMessage={changeMessage}/>
+    </div>
+  )
+}
+export default Parent;
+
+Child.js code:
+
+import React from "react";
+const Child=({changeMessage})=>{
+    return(
+        <button onClick={()=>changeMessage()}>Click me</button>
+    )
+}
+export default Child;
+
+
+
+
+
+
+
+
