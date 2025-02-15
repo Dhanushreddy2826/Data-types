@@ -1,0 +1,198 @@
+
+React Assignment: Item Management:
+
+App.js code:
+
+import React from 'react';
+import { ListProvider } from './ListContext';
+import AddItem from './AddItem';
+import ItemList from './ItemList';
+import './App.css';
+
+const App = () => {
+    return (
+        <ListProvider>
+            <div>
+                <h2>Item Management App</h2>
+                <AddItem />
+                <ItemList />
+            </div>
+        </ListProvider>
+    );
+};
+
+export default App;
+
+AddItem.js code:
+
+import React, { useState, useContext } from 'react';
+import ListContext from './ListContext';
+
+const AddItem = () => {
+    const [input, setInput] = useState('');
+    const { dispatch } = useContext(ListContext);
+
+    const handleAdd = () => {
+        if (input.trim() !== '') {
+            dispatch({ type: 'ADD_ITEM', payload: input });
+            setInput('');
+        }
+    };
+
+    return (
+        <div>
+            <input 
+                type="text" 
+                value={input} 
+                onChange={(e) => setInput(e.target.value)} 
+                placeholder="Enter item name"
+            />
+            <button onClick={handleAdd}>Add Item</button>
+        </div>
+    );
+};
+
+export default AddItem;
+
+ItemList.js code;
+
+import React, { useContext, useMemo } from 'react';
+import ListContext from './ListContext';
+
+const ItemList = () => {
+    const { list, dispatch } = useContext(ListContext);
+    
+    const memoizedList = useMemo(() => list, [list]);
+    
+    return (
+        <div>
+            <h3>Item List ({memoizedList.length})</h3>
+            <ul>
+                {memoizedList.map(item => (
+                    <li key={item.id}>
+                        {item.text} 
+                        <button onClick={() => dispatch({ type: 'REMOVE_ITEM', payload: item.id })}>Remove</button>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+};
+
+export default ItemList;
+
+ListContext.js code;
+
+import React, { createContext, useReducer } from 'react';
+const ListContext = createContext();
+
+const listReducer = (state, action) => {
+    switch (action.type) {
+        case 'ADD_ITEM':
+            return [...state, { id: Date.now(), text: action.payload }];
+        case 'REMOVE_ITEM':
+            return state.filter(item => item.id !== action.payload);
+        default:
+            return state;
+    }
+};
+
+export const ListProvider = ({ children }) => {
+    const [list, dispatch] = useReducer(listReducer, []);
+
+    return (
+        <ListContext.Provider value={{ list, dispatch }}>
+            {children}
+        </ListContext.Provider>
+    );
+};
+
+export default ListContext;
+
+App.css code:
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+p {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffff66;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px 20px;
+  border-radius: 12px;
+  display: inline-block;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button {
+  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  margin: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(to right, #e65100, #ff9800);
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.apple-container {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+img {
+  width: 80px;
+  height: 80px;
+  transition: transform 0.3s ease;
+}
+
+img:hover {
+  transform: rotate(10deg) scale(1.2);
+}
+
+
+Output:
+ 
+
+
+
+
+
+
+
+
