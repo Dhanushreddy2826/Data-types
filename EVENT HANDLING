@@ -1,0 +1,140 @@
+
+17TH  FEB:
+EVENT HANDLING :
+Event Handling in react is how you make your app do some thing When the user interacts with it, Like Clicking a button, Submitting a form
+1.	Clicking a button(onClick)
+2.	Pressing s key(KeyDown)
+3.	Moving the Mouse(onMouseMove)
+4.	Typing a textbox(onTextChange)
+
+HOW TO USE EVENTS IN REACT :
+Use camelCase for event names
+Pass a function to the event( not a function call)
+This function will run when the event will happens
+
+a)ClickEvent: (onClick):
+Ex: code
+function App(){
+  const handleClick=()=>{
+    alert("Button clicked")
+
+  };
+  return(
+    <button onClick={handleClick}>Click me</button>
+  )
+}
+export default App;
+
+b. change event(onChange) :
+this happens when you type in the text box
+target is the property of event object, which is predefined by javascript for DOM EVENTS
+event.target : always refers the elements which triggers the event
+event.target .value:
+Example1:
+App.js code:
+import React,{useState} from "react";
+function App(){
+  const [text,setText]=useState("")
+
+  const handleChange=(event)=>{
+    setText(event.target.value)
+  }
+  return(
+    <div>
+      <input type="text" value={text} onChange={handleChange} />
+      <p>Your text: {text}</p>
+    </div>
+  )
+}
+export default App;
+
+Example2: App.js code:
+import React, { useState } from "react";
+
+function App() {
+  const [text, setText] = useState("");
+
+  const handleChange = (event) => {
+    setText(event.target.value);
+  };
+
+  return (
+    <div style={{ textAlign: "center", marginTop: "20px" }}>
+      <input
+        type="text"
+        value={text}
+        onChange={handleChange}
+        placeholder="Type something..."
+        style={{ padding: "5px", fontSize: "16px" }}
+      />
+      <p style={{ fontSize: "18px", color: "blue" }}>Your text: {text}</p>
+    </div>
+  );
+}
+
+export default App;
+
+3)Mouseevent():
+
+Example code:
+App.js:
+import React,{ useState } from "react";
+import "./App.css"
+function App(){
+
+  const[isHovered, setIsHovered]=useState(false);
+
+  const handleMouseEnter=()=>{
+    setIsHovered(true);
+  }
+
+  const handleMouseLeave=()=>{
+    setIsHovered(false);
+  }
+
+  return(
+    <div className="App">
+      <button onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} 
+      style={{backgroundColor:isHovered ? "lightblue" : "lightgray",
+              color:isHovered ? "white" : "black"
+      }}> Hover Me</button>
+
+      {isHovered && <p>Mouse is over the button!</p>}
+    </div>
+    )
+}
+
+export default App;
+
+KEY EVENTS :
+Key is pressed on the keyboard:
+
+SYNTAX:
+onKeyDown ={KeyDownFunction}
+== KeyDownFunction : this is a function that runs whenever any key  is pressed on the keyword
+
+=Return Type:
+
+Example code:
+App.js:
+import React,{ useState } from "react";
+import "./App.css"
+function App(){
+
+  const[key, setKey]=useState("");
+
+  const handleKeyDown=(event)=>{
+    setKey(event.key);
+  }
+
+  return(
+    <div className="App">
+      <h1>WELCOME TO BHUVANA GROUP</h1>
+      {key && <h2>Pressed key : {key}</h2>}
+      <input type="text" onKeyDown={handleKeyDown} placeholder="Press any key"/>
+    </div>
+    )
+}
+
+export default App;
+
